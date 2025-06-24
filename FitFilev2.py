@@ -8,7 +8,7 @@ download_dir = os.path.expanduser("~/Downloads")
 fit_files = [f for f in os.listdir(download_dir) if f.lower().endswith(".fit")]
 
 if not fit_files:
-    print("❌ Geen .fit-bestanden gevonden in ~/Downloads")
+    print("❌ No .fit files found in ~/Downloads")
     exit(1)
 
 # ➤ Unieke kolomnamen verzamelen
@@ -36,7 +36,7 @@ for filename in fit_files:
     try:
         fitfile = FitFile(fit_path)
     except Exception as e:
-        print(f"❌ Fout bij openen van {filename}: {e}")
+        print(f"❌ Error opening {filename}: {e}")
         continue
 
     record_rows = []
@@ -53,12 +53,11 @@ for filename in fit_files:
 
     if record_rows:
         write_csv(record_filename, record_rows)
-        print(f"✅ Aangemaakt: {record_filename}")
+        print(f"✅ Created: {record_filename}")
     else:
-        print(f"⚠️ Geen record-data in {filename}")
+        print(f"⚠️ No record data in {filename}")
     if lap_rows:
         write_csv(lap_filename, lap_rows)
-        print(f"✅ Aangemaakt: {lap_filename}")
+        print(f"✅ Created: {lap_filename}")
     else:
-        print(f"⚠️ Geen lap-data in {filename}")
-    
+        print(f"⚠️ No lap data in {filename}")
