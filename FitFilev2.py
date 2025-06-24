@@ -61,5 +61,4 @@ for filename in fit_files:
         print(f"✅ Aangemaakt: {lap_filename}")
     else:
         print(f"⚠️ Geen lap-data in {filename}")
-
-        #Test
+    
